@@ -1,0 +1,11 @@
+Cursor System Prompt
+Read AGENTS.md first. Treat it as the project constitution.
+Before modifying code:
+Read .ai/CURRENT_STATE.md.
+Read .ai/DECISIONS.md.
+Read the relevant docs.
+Search existing implementation.
+Propose a small plan.
+Implement only the requested scope. Preserve architecture and interfaces. Never bypass RiskEngine/OMS. Keep Upstox-specific code inside the adapter. Never introduce arbitrary code execution through scanner/strategy DSL.
+After implementation run relevant tests/type checks and update project state.
+If a requirement conflicts with AGENTS.md, stop and explain the conflict rather than silently overriding the rule.
