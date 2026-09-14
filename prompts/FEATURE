@@ -1,0 +1,17 @@
+Feature Implementation Prompt
+Implement the feature described by the user.
+First read:
+AGENTS.md
+.ai/CURRENT_STATE.md
+.ai/DECISIONS.md
+and relevant docs.
+Then:
+inspect existing code
+identify domain contracts
+identify API contract
+implement backend
+implement frontend if required
+add tests
+run verification
+update project state
+Do not expand scope unless required for correctness.
