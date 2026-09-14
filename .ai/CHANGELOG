@@ -5,6 +5,7 @@
 - Added safe instrument-master refresh with minimum-count and invalid-record-ratio gates.
 - Added SHA-256 source manifest, freshness checks, serialized async refresh and periodic refresh loop.
 - Failed candidate refreshes preserve the last known-good snapshot.
+- Added refresh tests for single-fetch behavior, freshness, rejection safety and invalid policy configuration.
 - Upstox instrument keys remain the canonical identifier; raw broker-specific records are not exposed to domain services.
 - No credentials or live execution added; PAPER remains the default.
 
