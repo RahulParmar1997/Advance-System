@@ -2,7 +2,7 @@ Current State
 Updated: 2026-09-14
 
 Project phase
-Foundation / vibe-coding bootstrap.
+Foundation / Upstox V3 ingestion.
 
 Implemented in this increment
 - Typed backend package foundation under backend/src/advance_system.
@@ -10,16 +10,20 @@ Implemented in this increment
 - Normalized market event contracts for quote/status/quality.
 - Upstox adapter boundary isolated from domain logic.
 - Realtime heartbeat/data-quality monitor with stale-data detection.
-- Unit tests for data-quality behavior.
+- Added Upstox V3 feed decoder for SDK-decoded LTPC/full messages.
+- Added Upstox MarketDataStreamerV3 lifecycle boundary with subscribe/unsubscribe/change-mode operations.
+- Added async bridge from SDK callbacks into normalized domain quote handlers.
+- Corrected backend dependency to the maintained official upstox-python-sdk package.
+- Added decoder unit tests covering LTPC, full-feed depth/OI and unknown messages.
 
 Current priority
-Build production-grade Upstox V3 market-data ingestion and connect normalized realtime data to ClickHouse, feature engine and the chart.
+Complete production-grade Upstox V3 market-data ingestion without introducing broker logic into the domain, then connect normalized realtime data to instrument master, ClickHouse, Redis, candle engine and the chart.
 
 Next milestones
 1. Upstox OAuth/token lifecycle and secure credential handling.
-2. V3 WebSocket + protobuf implementation using the official SDK.
-3. Instrument master ingestion and validation.
-4. Quote/depth normalization and reconnect/resubscribe state machine.
+2. Instrument master ingestion and validation from Upstox JSON files.
+3. V3 reconnect/resubscribe state machine and subscription-limit enforcement.
+4. Quote/depth normalization and data-quality sequencing.
 5. Candle engine and closed-candle guarantees.
 6. ClickHouse market schema + batched writer.
 7. Redis realtime state + event fan-out.
