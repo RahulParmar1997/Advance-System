@@ -1,4 +1,11 @@
 2026-09-14
+- Added canonical Upstox instrument master model independent of broker SDK types.
+- Added BOD JSON/gzip decoding with required-field validation, expiry normalization and duplicate-key detection.
+- Added instrument master unit tests for equities, derivatives, duplicates, invalid records and compressed payloads.
+- Upstox instrument keys remain the canonical identifier; raw broker-specific records are not exposed to domain services.
+- No credentials or live execution added; PAPER remains the default.
+
+Previous
 - Added Upstox V3 SDK-backed market streamer boundary.
 - Added broker-isolated V3 feed decoder for normalized quote events.
 - Added async callback bridge and subscription lifecycle operations.
@@ -6,5 +13,5 @@
 - Added unit coverage for LTPC/full-feed decoding and malformed/unknown messages.
 - No credentials or live execution added; PAPER remains the default.
 
-Previous
+Previous foundation
 - Foundation slice: typed config, normalized market events, Upstox adapter boundary and stale-data monitor.
