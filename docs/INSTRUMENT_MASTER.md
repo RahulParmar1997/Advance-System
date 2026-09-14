@@ -21,6 +21,8 @@ Canonical Instrument model
     ↓
 Validation
     ↓
+Validated refresh snapshot
+    ↓
 Instrument Master Store (future)
     ↓
 Market Data / Candle / Analytics / Chart
@@ -65,14 +67,17 @@ Duplicate `instrument_key` values are reported and only the first valid record i
 
 The default freshness window is 24 hours. Production workers should emit metrics/alerts for repeated failures and stale snapshots. Persistence is intentionally outside the refresher so the service does not establish a new database ownership boundary.
 
+## Current integration status
+
+The instrument identity layer is now separate from the V3 socket lifecycle. `UpstoxSubscriptionManager` consumes canonical instrument keys and enforces provider subscription limits; the market-data adapter owns reconnect/replay. The instrument master does not own WebSocket connections.
+
 ## Next implementation
 
-The next instrument-master increments should add:
+The next instrument-master increment should add:
 
 1. persistent snapshot storage suitable for PostgreSQL application state
 2. lookup indexes by instrument key, trading symbol, ISIN, segment and underlying
 3. expiry lifecycle handling for derivatives
 4. reconciliation between the current master and active subscriptions
-5. V3 reconnect/resubscribe and subscription-limit enforcement
 
 Do not make the instrument master a substitute for ClickHouse market history. It owns instrument identity and metadata; ClickHouse owns high-volume market observations.
