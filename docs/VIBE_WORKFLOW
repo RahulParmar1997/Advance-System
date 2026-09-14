@@ -1,0 +1,32 @@
+Vibe Coding Workflow
+Every task
+1. Understand
+Read AGENTS.md + CURRENT_STATE + relevant docs.
+2. Inspect
+Search the repository for existing types, services, tests and adapters.
+3. Plan
+State:
+goal
+files to change
+interfaces/contracts
+risks
+tests
+4. Implement
+Make the smallest coherent change.
+5. Verify
+Run targeted tests first, then broader checks.
+6. Update project memory
+Update CURRENT_STATE/TODO/CHANGELOG.
+7. Report
+Return:
+summary
+files changed
+tests
+known issues
+next recommended task
+Never
+blindly rewrite a subsystem
+create duplicate abstractions
+invent APIs
+use fake market data as if it were live
+enable live trading to demonstrate functionality
