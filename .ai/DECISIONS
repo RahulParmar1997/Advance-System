@@ -1,0 +1,16 @@
+Architecture Decisions
+ADR-001 — Modular monolith first
+Use a modular monolith plus workers. Extract services only when scale, reliability or team ownership makes it necessary.
+ADR-002 — Upstox adapter boundary
+All Upstox-specific authentication, market feed and order APIs live behind adapters. Domain services do not import broker SDK types.
+ADR-003 — Storage ownership
+PostgreSQL: users, configuration, strategies, risk, OMS, positions, audit.
+ClickHouse: ticks, quotes, candles, options, futures, features and signals.
+Redis: current market state, subscriptions, hot cache and transient coordination.
+Parquet/object storage: raw archives, research datasets and ML datasets.
+ADR-004 — Chart abstraction
+Use a ChartAdapter so Lightweight Charts can be used initially and a licensed TradingView charting product can be evaluated later without rewriting domain contracts.
+ADR-005 — AI is above deterministic intelligence
+AI can explain, research, rank, generate hypotheses and translate natural language into validated DSL. AI cannot bypass deterministic strategy, risk or OMS controls.
+ADR-006 — Paper first
+All trading workflows start in PAPER mode. Live execution is a deliberate production configuration change.
