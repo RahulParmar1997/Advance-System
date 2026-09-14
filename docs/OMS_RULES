@@ -1,0 +1,12 @@
+OMS Rules — Protected
+Canonical lifecycle
+SCANNED → CANDIDATE → QUALIFIED → RISK_CHECK → ORDER_PENDING → PARTIALLY_FILLED → FILLED → MANAGED → SCALE_OUT → EXIT → CLOSED
+Rules
+Every order intent gets an idempotency key.
+Internal order ID is separate from broker order ID.
+Broker events must be reconciled into internal state.
+Partial fills are first-class.
+Rejections/cancellations are first-class events.
+Position state is derived from authoritative fills plus reconciliation.
+Never infer a fill only from UI state.
+Never place a broker order directly from frontend code.
