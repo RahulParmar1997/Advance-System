@@ -6,8 +6,8 @@ P0
 [x] Instrument master parsing and validation foundation
 [x] Instrument master scheduled/download integration
 [x] Instrument master freshness/checksum/atomic publish foundation
-[ ] Reconnect/resubscribe state machine
-[ ] Subscription-limit enforcement
+[x] Reconnect/resubscribe state machine
+[x] Subscription-limit enforcement
 [ ] Quote/depth normalization hardening
 [ ] ClickHouse candle/event schemas
 [ ] Realtime chart updates
