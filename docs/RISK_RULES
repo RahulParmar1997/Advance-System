@@ -1,0 +1,27 @@
+Risk Rules — Protected
+Mandatory sequence
+Strategy → RiskEngine → OMS → BrokerAdapter.
+Mandatory checks
+market open/status
+data freshness
+instrument validity
+duplicate/idempotency
+position exposure
+symbol/sector/portfolio exposure
+daily loss
+strategy loss
+max concurrent trades
+max leverage
+margin
+slippage
+broker health
+data health
+global kill switch
+strategy kill switch
+symbol blocklist
+Defaults
+PAPER execution
+conservative risk fraction
+no live order without explicit production configuration
+Important
+Never loosen a risk control merely to make a test pass.
