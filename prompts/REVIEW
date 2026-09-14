@@ -1,0 +1,24 @@
+Vibe Code Review Prompt
+Review the current changes as a senior engineer.
+Check:
+Architecture boundaries
+Security/secrets
+Trading safety
+Risk/OMS bypasses
+Broker isolation
+Data correctness
+Timezone/session handling
+Look-ahead bias
+Idempotency
+Concurrency/race conditions
+Error handling/retries
+Performance
+Tests
+Observability
+Backward compatibility
+Classify findings:
+BLOCKER
+HIGH
+MEDIUM
+LOW
+Do not rewrite code automatically. Explain the issue and the smallest safe fix.
