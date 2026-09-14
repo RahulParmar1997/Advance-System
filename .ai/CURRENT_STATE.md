@@ -23,6 +23,10 @@ Implemented in this increment
 - Refresh publishes only validated candidates and preserves the last known-good snapshot on failure.
 - Added serialized async refresh and periodic worker-loop support without introducing a new scheduler dependency.
 - Added refresh tests for single-fetch behavior, freshness, rejection safety and invalid policy configuration.
+- Added configurable Upstox V3 subscription manager using the provider's individual/combined feed limits.
+- Added generation-based reconnect/resubscribe state machine with bounded exponential backoff and stale-callback protection.
+- Reconnect replays the accepted desired subscription set after a fresh socket open; intentional disconnect cancels recovery.
+- Added subscription and reconnect behavioral tests plus Upstox V3 operational documentation.
 
 Current priority
 Complete production-grade Upstox V3 market-data ingestion without introducing broker logic into the domain, then connect normalized realtime data to instrument master, ClickHouse, Redis, candle engine and the chart.
@@ -30,17 +34,16 @@ Complete production-grade Upstox V3 market-data ingestion without introducing br
 Next milestones
 1. Upstox OAuth/token lifecycle and secure credential handling.
 2. Persistent instrument-master snapshot storage and lookup indexes.
-3. V3 reconnect/resubscribe state machine and subscription-limit enforcement.
-4. Quote/depth normalization and data-quality sequencing.
-5. Candle engine and closed-candle guarantees.
-6. ClickHouse market schema + batched writer.
-7. Redis realtime state + event fan-out.
-8. Realtime chart gateway and TradingView-like chart state.
-9. Market intelligence modules: structure, liquidity, profile, order flow, futures/options, breadth and regime.
-10. Typed scanner DSL → opportunity engine → Trade Type → strategy → probability/EV.
-11. Risk/OMS hardening and paper execution simulator.
-12. Event-driven backtester with costs, slippage and deterministic replay.
-13. ML calibration, observability and production readiness.
+3. Quote/depth normalization and data-quality sequencing.
+4. Candle engine and closed-candle guarantees.
+5. ClickHouse market schema + batched writer.
+6. Redis realtime state + event fan-out.
+7. Realtime chart gateway and TradingView-like chart state.
+8. Market intelligence modules: structure, liquidity, profile, order flow, futures/options, breadth and regime.
+9. Typed scanner DSL → opportunity engine → Trade Type → strategy → probability/EV.
+10. Risk/OMS hardening and paper execution simulator.
+11. Event-driven backtester with costs, slippage and deterministic replay.
+12. ML calibration, observability and production readiness.
 
 Not production-ready
 - Live execution
@@ -51,6 +54,7 @@ Not production-ready
 - ML probability model
 - HA/disaster recovery
 - Persistent instrument-master repository and distributed worker deployment
+- Production OAuth/token lifecycle
 
 Safety
 No broker credentials, tokens or live-order implementation were added. PAPER remains the default.
