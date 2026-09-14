@@ -1,0 +1,30 @@
+# AI/ML Rules
+
+## ML
+Use deterministic feature contracts and time-aware validation.
+Potential jobs:
+- setup classification
+- outcome probability
+- regime classification
+- similarity search
+- ranking
+- anomaly detection
+
+## AI
+AI may:
+- explain market state
+- explain opportunities
+- generate scanner DSL
+- generate research hypotheses
+- summarize backtests
+- summarize journal/pattern DNA
+
+AI may not:
+- bypass risk
+- directly place broker orders
+- invent market data
+- alter production risk settings silently
+- claim probability without calibration/evidence
+
+## Evidence
+AI explanations should reference stored features/events used for the conclusion.
