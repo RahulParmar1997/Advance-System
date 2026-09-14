@@ -16,7 +16,7 @@ def test_single_mode_uses_individual_limit():
 def test_multiple_modes_use_combined_limits():
     manager = UpstoxSubscriptionManager(
         individual_limits={"ltpc": 5, "full": 5},
-        combined_limits={"ltpc": 2, "full": 2},
+        combined_limits={"ltpc": 2, "full": 1},
     )
     manager.add(["A", "B"], "ltpc")
     with pytest.raises(SubscriptionLimitError):
