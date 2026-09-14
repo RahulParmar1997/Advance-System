@@ -1,0 +1,26 @@
+Current TODO
+P0
+[ ] Upstox V3 auth integration
+[ ] Instrument master ingestion
+[ ] Market WebSocket protobuf ingestion
+[ ] Reconnect/heartbeat/data-quality handling
+[ ] ClickHouse candle/event schemas
+[ ] Realtime chart updates
+P1
+[ ] Multi-timeframe candle engine
+[ ] Structure engine
+[ ] Liquidity engine
+[ ] Volume/market profile
+[ ] Futures analytics
+[ ] Options analytics
+[ ] Regime engine
+[ ] Scanner DSL
+[ ] Opportunity engine
+[ ] Risk/OMS reconciliation
+P2
+[ ] Event-driven backtester
+[ ] Pattern DNA
+[ ] Probability calibration
+[ ] ML ranking
+[ ] Research workspace
+[ ] Observability/alerts
