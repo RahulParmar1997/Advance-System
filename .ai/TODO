@@ -1,9 +1,12 @@
 Current TODO
 P0
 [ ] Upstox V3 auth integration
+[x] Upstox V3 SDK market streamer boundary
+[x] Upstox V3 decoded-feed normalization foundation
 [ ] Instrument master ingestion
-[ ] Market WebSocket protobuf ingestion
-[ ] Reconnect/heartbeat/data-quality handling
+[ ] Reconnect/resubscribe state machine
+[ ] Subscription-limit enforcement
+[ ] Quote/depth normalization hardening
 [ ] ClickHouse candle/event schemas
 [ ] Realtime chart updates
 P1
