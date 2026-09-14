@@ -6,6 +6,9 @@
 - Added SHA-256 source manifest, freshness checks, serialized async refresh and periodic refresh loop.
 - Failed candidate refreshes preserve the last known-good snapshot.
 - Added refresh tests for single-fetch behavior, freshness, rejection safety and invalid policy configuration.
+- Added configurable Upstox V3 subscription manager with individual and combined provider-limit enforcement.
+- Added generation-based reconnect/resubscribe with bounded exponential backoff and intentional-disconnect protection.
+- Added subscription/reconnect tests and documented the current V3 feed limits and recovery behavior.
 - Upstox instrument keys remain the canonical identifier; raw broker-specific records are not exposed to domain services.
 - No credentials or live execution added; PAPER remains the default.
 
