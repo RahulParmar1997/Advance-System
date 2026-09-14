@@ -1,0 +1,17 @@
+Upstox Integration
+Boundary
+All broker integration belongs in `backend/src/app/adapters/upstox`.
+Requirements
+official Upstox SDK/API
+V3 market data feed
+historical/intraday candles
+portfolio/order updates
+authentication/token lifecycle
+reconnect/heartbeat handling
+subscription management
+protobuf decoding
+rate-limit handling
+broker error normalization
+paper/sandbox testing
+Domain isolation
+Do not leak Upstox-specific DTOs into domain logic. Normalize them into internal contracts.
