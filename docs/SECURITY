@@ -1,0 +1,11 @@
+Security
+Never commit credentials.
+`.env` stays local/secret.
+Use `.env.example`.
+Never log access tokens.
+Restrict broker permissions to required scopes.
+Separate paper and live credentials.
+Audit order/risk/config changes.
+Validate all external input.
+Use least privilege.
+Treat AI-generated code as untrusted until reviewed/tests pass.
