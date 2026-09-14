@@ -1,0 +1,26 @@
+New Vibe Coding Task Template
+Task
+<describe one concrete feature/fix>
+Context
+<why it is needed>
+Acceptance criteria
+[ ] ...
+[ ] ...
+[ ] ...
+Required docs
+<list relevant docs>
+Constraints
+Preserve architecture.
+PAPER mode remains default.
+No broker call from domain/frontend.
+Add tests.
+No look-ahead bias.
+Agent response
+Before coding:
+summarize understanding
+list files likely to change
+identify risks
+implement
+test
+update .ai state
+summarize result
