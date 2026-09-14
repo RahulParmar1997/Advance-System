@@ -1,70 +1,54 @@
-# AGENTS.md
-
-## Project
-
-India-focused Market Intelligence + Quant Research +
-Automated Trading Platform.
-
-## Core architecture
-
-Upstox
-→ ingestion
-→ normalization
-→ validation
-→ storage
-→ feature engine
-→ market intelligence
-→ scanner
-→ opportunity engine
-→ Trade Type
-→ strategy
-→ probability/EV
-→ risk
-→ OMS
-→ execution
-→ Upstox
-
-## Critical rules
-
-1. PAPER mode is the default.
-2. Never bypass RiskEngine.
-3. Never bypass OMS.
-4. Never put broker-specific code inside strategies.
-5. Never put database/network calls inside pure strategy calculations.
-6. Scanner UI must generate typed AST/DSL, never executable Python.
-7. Never introduce look-ahead bias.
-8. Every strategy must have a version.
-9. Every ML model must have a version.
-10. Never treat SMC/ICT/Wyckoff as guaranteed predictions.
-11. Raw market data must remain separate from derived features.
-12. PostgreSQL is not the high-volume tick store.
-13. Redis is not permanent historical storage.
-14. Chart UI is not the source of truth for orders.
-15. Broker state must be reconciled with internal OMS state.
-16. Trading-critical changes require tests.
-
-## Before coding
-
-Read:
-- .ai/CURRENT_STATE.md
-- docs/ARCHITECTURE.md
-- relevant domain documentation
-- docs/RISK_RULES.md for trading/execution changes
-
-## After coding
-
-1. Run tests.
-2. Check type errors.
-3. Check lint.
-4. Update CURRENT_STATE.md.
-5. Update CHANGELOG.md.
-6. Explain files changed and why.
-
-## Do not
-
-- Rewrite architecture without approval.
-- Replace libraries without justification.
-- Add random indicators.
-- create duplicate services.
-- hard-code broker credentials.
-- enable live trading by default.
+AGENTS.md — Trading Platform Coding Constitution
+Mission
+Build an India-focused professional Market Intelligence, Quant Research, Trading and Automation platform.
+Architecture
+Upstox → ingestion → normalization → validation → storage → candle/features → intelligence → scanner → opportunity → Trade Type → strategy → probability/EV → risk → OMS → execution → reconciliation → journal/research.
+Non-negotiable rules
+PAPER mode is always the default.
+Never bypass RiskEngine or OMS.
+Broker-specific code belongs only in adapters/upstox.
+Domain logic must not make network/database calls.
+Scanner and strategy builders produce typed AST/DSL, never executable Python from user input.
+No look-ahead bias in backtests, replay, features or ML.
+Raw, normalized, derived and model data remain separate.
+PostgreSQL is application/OMS state, not the high-volume tick store.
+Redis is hot/realtime state, not permanent historical storage.
+ClickHouse is the primary high-volume market analytics store.
+Chart UI is never the source of truth for orders or positions.
+Internal OMS is the canonical application order state; broker status is reconciled into it.
+Every strategy/model/feature contract must be versioned where behavior affects results.
+SMC/ICT/Wyckoff are measurable hypotheses/lenses, never guaranteed predictions.
+Do not silently change risk, execution, sizing, cost or backtest semantics.
+Trading-critical code requires tests and deterministic replay where practical.
+Do not enable live trading, real credentials or destructive operations by default.
+Coding workflow
+Before coding:
+Read this file.
+Read .ai/CURRENT_STATE.md.
+Read .ai/DECISIONS.md.
+Read the relevant docs.
+Inspect existing code before creating new files.
+While coding:
+Prefer existing abstractions.
+Avoid duplicate services.
+Keep changes small and coherent.
+Use typed interfaces.
+Keep broker adapters isolated.
+Preserve backward compatibility unless the task explicitly changes a contract.
+After coding:
+Run relevant tests.
+Run type/lint checks where available.
+Review changed files for accidental secrets or live execution.
+Update .ai/CURRENT_STATE.md.
+Update .ai/TODO.md if work changed.
+Update .ai/CHANGELOG.md for meaningful changes.
+Report what changed, tests run, known limitations and next step.
+Stop and ask before
+Changing architecture boundaries.
+Changing database ownership.
+Changing risk limits or position sizing semantics.
+Enabling live execution.
+Replacing the broker/data provider.
+Removing auditability.
+Deleting production data or migrations.
+Adding a new major dependency when an existing dependency can solve the problem.
