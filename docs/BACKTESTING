@@ -1,0 +1,23 @@
+Backtesting
+Use event-driven deterministic replay:
+Historical data → market state → features → strategy → risk → simulated order → fill model → position → P&L.
+Model:
+brokerage
+taxes/fees
+spread
+slippage
+market impact
+latency
+partial fills
+rejects
+gaps
+capacity
+Validation:
+train/test separation
+walk-forward
+parameter sensitivity
+Monte Carlo/trade randomization
+regime breakdown
+cost sensitivity
+capacity analysis
+Never use future information to calculate a decision at timestamp T.
