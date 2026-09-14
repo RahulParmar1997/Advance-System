@@ -1,0 +1,28 @@
+TradingView-like Charting
+Core
+Use a dedicated financial charting layer. Initial foundation: Lightweight Charts.
+Required
+candles/OHLC/line/area
+zoom/pan/crosshair
+timeframes
+multi-chart layouts
+symbol search
+drawings
+Fibonacci
+channels
+anchored VWAP
+volume
+VWAP
+profile
+SMC/ICT overlays
+liquidity
+order flow
+futures OI
+options overlays
+strategy signals
+order/position markers
+replay
+saved layouts/drawings
+realtime updates
+Rule
+Chart is a visualization/control surface. It is not the trading source of truth.
