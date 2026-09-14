@@ -1,0 +1,33 @@
+Product Definition
+Product
+Professional India-focused Market Intelligence + Quant Research + Automated Trading platform.
+Core idea
+The broker supplies market data and execution connectivity. The platform owns intelligence:
+structure
+SMC/ICT
+Wyckoff
+liquidity
+volume/market profile
+order flow
+futures
+options
+breadth
+sectors
+global context
+regime
+scanners
+strategies
+probability
+expected value
+risk
+research
+Trade Type
+Trade Type is a pre-filter for automated trading, not manual trading.
+Trade Type answers WHAT:
+Scalping, Intraday, Breakout, Momentum, Trend Following, Mean Reversion, Reversal, Range, Swing, Positional, BTST, Option Buying, Option Selling, Futures, Custom.
+Strategy answers HOW.
+Regime answers WHEN.
+Risk answers HOW MUCH.
+Execution answers HOW.
+User experience
+Professional TradingView-like charts + dense market intelligence + scanner + research + automation + portfolio/OMS.
