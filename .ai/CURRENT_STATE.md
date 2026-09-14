@@ -22,6 +22,7 @@ Implemented in this increment
 - Added SHA-256 source manifest and explicit freshness checks.
 - Refresh publishes only validated candidates and preserves the last known-good snapshot on failure.
 - Added serialized async refresh and periodic worker-loop support without introducing a new scheduler dependency.
+- Added refresh tests for single-fetch behavior, freshness, rejection safety and invalid policy configuration.
 
 Current priority
 Complete production-grade Upstox V3 market-data ingestion without introducing broker logic into the domain, then connect normalized realtime data to instrument master, ClickHouse, Redis, candle engine and the chart.
