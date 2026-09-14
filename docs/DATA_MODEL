@@ -1,0 +1,14 @@
+Data Model
+PostgreSQL
+Application state:
+users, permissions, instruments metadata, trade types, strategies, strategy versions, risk profiles, orders, order events, fills, positions, backtests, models, watchlists, audit.
+ClickHouse
+Market analytics:
+ticks, quotes, depth, candles, futures, options, features, structure events, liquidity events, profiles, regimes, signals, scanner results.
+Redis
+Hot state:
+latest quotes, current candles, active subscriptions, current regime, active signals, short-lived coordination.
+Object storage
+Raw feeds, historical archives, Parquet feature datasets, research datasets and model artifacts.
+Versioning
+Store algorithm/model/feature version on derived records where reproducibility matters.
