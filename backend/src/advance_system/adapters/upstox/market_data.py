@@ -85,11 +85,7 @@ class UpstoxMarketDataAdapter:
         for quote in decode_quotes(message):
             await self.handle_normalized_quote(quote)
 
-    async def connect(
-        self,
-        instrument_keys: Sequence[str] = (),
-        mode: str = "ltpc",
-    ) -> None:
+    async def connect(self, instrument_keys: Sequence[str] = (), mode: str = "ltpc") -> None:
         if self.connected:
             return
         if not self.access_token:
@@ -187,6 +183,13 @@ class UpstoxMarketDataAdapter:
         if generation != self._generation:
             return
         self._connected = False
+        streamer = self._streamer
+        self._streamer = None
+        if streamer is not None:
+            try:
+                streamer.disconnect()  # type: ignore[attr-defined]
+            except Exception:
+                pass
         self._schedule_reconnect(generation)
 
     def _schedule_reconnect(self, generation: int) -> None:
@@ -230,8 +233,4 @@ class UpstoxMarketDataAdapter:
         return upstox_client.MarketDataStreamerV3(api_client, list(instrument_keys), mode)
 
 
-__all__ = [
-    "ReconnectPolicy",
-    "UpstoxMarketDataAdapter",
-    "UpstoxSubscription",
-]
+__all__ = ["ReconnectPolicy", "UpstoxMarketDataAdapter", "UpstoxSubscription"]
