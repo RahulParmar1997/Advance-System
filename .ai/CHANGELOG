@@ -1,5 +1,21 @@
-AI Changelog
 2026-09-14
-Created AI-agent control pack.
-Established coding constitution and architecture decisions.
-Established current-state/TODO/known-issues workflow.
+- Added canonical Upstox instrument master model independent of broker SDK types.
+- Added BOD JSON/gzip decoding with required-field validation, expiry normalization and duplicate-key detection.
+- Added instrument master unit tests for equities, derivatives, duplicates, invalid records and compressed payloads.
+- Added safe instrument-master refresh with minimum-count and invalid-record-ratio gates.
+- Added SHA-256 source manifest, freshness checks, serialized async refresh and periodic refresh loop.
+- Failed candidate refreshes preserve the last known-good snapshot.
+- Added refresh tests for single-fetch behavior, freshness, rejection safety and invalid policy configuration.
+- Upstox instrument keys remain the canonical identifier; raw broker-specific records are not exposed to domain services.
+- No credentials or live execution added; PAPER remains the default.
+
+Previous
+- Added Upstox V3 SDK-backed market streamer boundary.
+- Added broker-isolated V3 feed decoder for normalized quote events.
+- Added async callback bridge and subscription lifecycle operations.
+- Switched backend dependency to maintained upstox-python-sdk >=2.30,<3.
+- Added unit coverage for LTPC/full-feed decoding and malformed/unknown messages.
+- No credentials or live execution added; PAPER remains the default.
+
+Previous foundation
+- Foundation slice: typed config, normalized market events, Upstox adapter boundary and stale-data monitor.

@@ -1,8 +1,7 @@
 Known Issues
-Current chart contains demo data.
-Upstox adapter is a safe boundary, not a finished live connector.
-Risk engine is a foundation and needs portfolio/margin/liquidity checks.
-OMS needs persistence, idempotency, broker reconciliation and event history.
-Scanner DSL needs a formal AST/schema and validation.
-No live execution should be assumed to work.
-Production deployment/security/HA are incomplete.
+- Repository-local test execution is currently blocked by unavailable external network/DNS in the coding environment; tests are committed but full pytest execution has not been possible here.
+- Instrument-master refresh currently publishes an in-memory last-known-good snapshot; persistent PostgreSQL/object-store storage is the next increment.
+- The periodic refresher preserves the last good snapshot on refresh failure, but production observability/alert emission must be wired into the worker layer.
+- Upstox V3 reconnect/resubscribe and subscription-limit enforcement are not implemented yet.
+- Full quote/depth normalization, candle aggregation, ClickHouse/Redis persistence and realtime chart publishing remain future milestones.
+- No live execution, broker reconciliation, or production order path is implemented.
