@@ -1,0 +1,27 @@
+System Architecture
+UPSTOX
+→ MARKET DATA
+→ NORMALIZATION
+→ DATA QUALITY
+→ REDIS / CLICKHOUSE / PARQUET
+→ CANDLE ENGINE
+→ FEATURE ENGINE
+→ MARKET INTELLIGENCE
+→ SCANNER
+→ OPPORTUNITY ENGINE
+→ TRADE TYPE
+→ STRATEGY
+→ PROBABILITY + EV
+→ RISK
+→ OMS
+→ UPSTOX EXECUTION
+→ RECONCILIATION
+→ JOURNAL / PATTERN DNA / RESEARCH
+Backend layers
+API → Application Services → Domain → Repositories/Adapters.
+Frontend
+Next.js → feature modules → API/query state + realtime store → chart/table/UI components.
+Realtime
+Upstox → ingestion → event bus/Redis → realtime gateway → browser.
+Principle
+A feature must have one clear owner. Do not duplicate calculations across frontend and backend when the result affects trading decisions.
