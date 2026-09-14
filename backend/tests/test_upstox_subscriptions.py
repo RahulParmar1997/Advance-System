@@ -20,7 +20,7 @@ def test_multiple_modes_use_combined_limits():
     )
     manager.add(["A", "B"], "ltpc")
     with pytest.raises(SubscriptionLimitError):
-        manager.add(["C"], "full")
+        manager.add(["C", "D"], "full")
 
 
 def test_duplicate_keys_do_not_consume_extra_capacity():
