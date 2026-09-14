@@ -15,13 +15,16 @@ Implemented in this increment
 - Added async bridge from SDK callbacks into normalized domain quote handlers.
 - Corrected backend dependency to the maintained official upstox-python-sdk package.
 - Added decoder unit tests covering LTPC, full-feed depth/OI and unknown messages.
+- Added canonical instrument master model independent of broker SDK types.
+- Added Upstox BOD JSON/gzip decoder with expiry normalization, duplicate-key detection and invalid-record rejection.
+- Added instrument master parsing tests.
 
 Current priority
 Complete production-grade Upstox V3 market-data ingestion without introducing broker logic into the domain, then connect normalized realtime data to instrument master, ClickHouse, Redis, candle engine and the chart.
 
 Next milestones
 1. Upstox OAuth/token lifecycle and secure credential handling.
-2. Instrument master ingestion and validation from Upstox JSON files.
+2. Instrument master scheduled/download integration and freshness validation.
 3. V3 reconnect/resubscribe state machine and subscription-limit enforcement.
 4. Quote/depth normalization and data-quality sequencing.
 5. Candle engine and closed-candle guarantees.
