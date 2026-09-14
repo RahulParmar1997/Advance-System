@@ -1,0 +1,8 @@
+Known Issues
+Current chart contains demo data.
+Upstox adapter is a safe boundary, not a finished live connector.
+Risk engine is a foundation and needs portfolio/margin/liquidity checks.
+OMS needs persistence, idempotency, broker reconciliation and event history.
+Scanner DSL needs a formal AST/schema and validation.
+No live execution should be assumed to work.
+Production deployment/security/HA are incomplete.
