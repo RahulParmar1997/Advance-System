@@ -1,0 +1,22 @@
+Testing
+Required layers
+unit
+integration
+replay
+strategy
+risk
+OMS/execution
+data quality
+API
+frontend/component
+Trading-critical invariant
+A strategy signal alone can never cause a broker order.
+Regression
+Keep deterministic fixtures for:
+candles
+market structure
+futures buildup
+options metrics
+scanner rules
+risk decisions
+OMS transitions
