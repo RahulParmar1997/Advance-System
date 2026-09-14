@@ -3,7 +3,8 @@ P0
 [ ] Upstox V3 auth integration
 [x] Upstox V3 SDK market streamer boundary
 [x] Upstox V3 decoded-feed normalization foundation
-[ ] Instrument master ingestion
+[x] Instrument master parsing and validation foundation
+[ ] Instrument master scheduled/download integration
 [ ] Reconnect/resubscribe state machine
 [ ] Subscription-limit enforcement
 [ ] Quote/depth normalization hardening
