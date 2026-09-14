@@ -18,13 +18,17 @@ Implemented in this increment
 - Added canonical instrument master model independent of broker SDK types.
 - Added Upstox BOD JSON/gzip decoder with expiry normalization, duplicate-key detection and invalid-record rejection.
 - Added instrument master parsing tests.
+- Added safe instrument-master refresh service with minimum-count and invalid-record-ratio gates.
+- Added SHA-256 source manifest and explicit freshness checks.
+- Refresh publishes only validated candidates and preserves the last known-good snapshot on failure.
+- Added serialized async refresh and periodic worker-loop support without introducing a new scheduler dependency.
 
 Current priority
 Complete production-grade Upstox V3 market-data ingestion without introducing broker logic into the domain, then connect normalized realtime data to instrument master, ClickHouse, Redis, candle engine and the chart.
 
 Next milestones
 1. Upstox OAuth/token lifecycle and secure credential handling.
-2. Instrument master scheduled/download integration and freshness validation.
+2. Persistent instrument-master snapshot storage and lookup indexes.
 3. V3 reconnect/resubscribe state machine and subscription-limit enforcement.
 4. Quote/depth normalization and data-quality sequencing.
 5. Candle engine and closed-candle guarantees.
@@ -45,6 +49,7 @@ Not production-ready
 - Production-grade backtester
 - ML probability model
 - HA/disaster recovery
+- Persistent instrument-master repository and distributed worker deployment
 
 Safety
 No broker credentials, tokens or live-order implementation were added. PAPER remains the default.
